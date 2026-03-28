@@ -54,3 +54,45 @@ public class HelloWorld
         Console.WriteLine($"Pole= {pole}, Obwód= {obwod}");
     }
 }
+
+2. Oblicz sumę początkowych n liczb naturalnych, gdzie wartość n będzie pobrana z
+klawiatury.
+
+using System;
+using System.Collections.Generic;
+
+public class HelloWorld
+{
+    static decimal Suma(decimal a)
+    {
+        decimal suma=0;
+        for (int i=0; i<=a; i++)
+        {
+           suma += i  ;
+        }
+        return suma;
+    }
+    public static void Main(string[] args)
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+
+        Console.WriteLine ("Podaj wartość, do której policzona ma zostać suma");
+        decimal liczba;
+        while(true)
+        {
+            bool czyLiczba=decimal.TryParse(Console.ReadLine(), out liczba);
+            if(!czyLiczba)
+            {
+                Console.WriteLine("BŁĄD. Podaj liczbę.");
+            }
+            else
+            {
+                break;
+            }
+        }
+        decimal ile= Suma(liczba);
+        Console.WriteLine($"Suma wynosi {ile}");
+        
+    }
+}
