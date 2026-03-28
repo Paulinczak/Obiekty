@@ -1,0 +1,56 @@
+Podstawowa składnia języka C#
+
+1. Pobierz z klawiatury dwie wartości, które będą bokami prostokąta. Następnie oblicz jego
+pole i obwód. 
+
+using System;
+using System.Collections.Generic;
+
+public class HelloWorld
+{
+    static decimal Pole(decimal a, decimal b)
+    {
+        return a*b;
+    }
+    static decimal Obwod(decimal a, decimal b)
+    {
+        return 2*a+2*b;
+    }
+    public static void Main(string[] args)
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.InputEncoding = System.Text.Encoding.UTF8;
+
+        Console.WriteLine ("Podaj pierwsza wartosc boków prostokąta");
+        decimal bokA;
+        while(true)
+        {
+            bool czyLiczba=decimal.TryParse(Console.ReadLine(), out bokA);
+            if(!czyLiczba)
+            {
+                Console.WriteLine("BŁĄD. Podaj liczbę.");
+            }
+            else
+            {
+                break;
+            }
+        }
+        Console.WriteLine("Podaj drugą wartosc boków prostokąta");
+        decimal bokB;
+        while(true)
+        {
+            bool czyLiczbaB=decimal.TryParse(Console.ReadLine(), out bokB);
+            if(!czyLiczbaB)
+            {
+                Console.WriteLine("BŁĄD. Podaj liczbę.");
+            }
+            else
+            {
+                break;
+            }
+        }
+        decimal pole = Pole(bokA, bokB);
+        decimal obwod = Obwod(bokA, bokB);
+        Console.WriteLine($"Pole= {pole}, Obwód= {obwod}");
+    }
+}
