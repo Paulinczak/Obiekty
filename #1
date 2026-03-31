@@ -96,3 +96,47 @@ public class HelloWorld
         
     }
 }
+
+3. Sprawdź, czy pobrana z klawiatury liczba jest doskonała. 
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.OutputEncoding= System.Text.Encoding.UTF8;
+        Console.InputEncoding= System.Text.Encoding.UTF8;
+        
+        Console.WriteLine ("Podaj liczbę całkowitą, a ja powiem ci, czy jest doskonała:");
+        int liczba;
+        while(true)
+        {
+            bool czyLiczba = int.TryParse(Console.ReadLine(), out liczba);
+            if (!czyLiczba)
+            {
+                Console.WriteLine("Błąd. Podaj liczbę");
+            }
+            else
+            {
+                break;
+            }
+        }
+        int suma=0;
+        for (int i=1; i<liczba; i++)
+        {
+            if(liczba%i == 0)
+            {
+                suma+= i;
+            }
+        }
+        if(suma==liczba)
+        {
+            Console.WriteLine($"Liczba {liczba} jest doskonała");
+        }
+        else
+        {
+            Console.WriteLine($"Liczba {liczba} nie jest doskonała");
+        }
+    }
+}
