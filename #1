@@ -140,3 +140,44 @@ public class HelloWorld
         }
     }
 }
+
+4. Pobierz z klawiatury liczbę zmiennoprzecinkową, a następnie oblicz wartości funkcji 
+trygonometrycznych dla tej wartości. biblioteka Math 
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        Console.OutputEncoding= System.Text.Encoding.UTF8;
+        Console.InputEncoding= System.Text.Encoding.UTF8;
+        Console.WriteLine ("Podaj liczbę w radianach dla jakiej mają zostać obliczone wartości funkcji trygonometrycznych");
+        double liczba;
+        while(true)
+        {
+            bool czyLiczba = double.TryParse(Console.ReadLine(), out liczba);
+            if (!czyLiczba)
+            {
+                Console.WriteLine("Błąd. Podaj liczbę");
+            }
+            else
+            {
+                break;
+            }
+        }
+        
+        double sin = Math.Sin (liczba);
+        double cos= Math.Cos(liczba);
+        double tan= Math.Tan(liczba);
+        double cot= 1/tan;
+        
+        Console.WriteLine($"Wartości funkcji trygonometrycznych liczby {liczba} wynoszą:");
+        Console.WriteLine($"Sinus: {sin}");
+        Console.WriteLine($"Cosinus: {cos}");
+        Console.WriteLine($"Tangens: {tan}");
+        Console.WriteLine($"Cotangens: {cot}");
+
+    }
+}
+
